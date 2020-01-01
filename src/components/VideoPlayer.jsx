@@ -1,12 +1,8 @@
-import VideoData from '../data/exampleVideoData.js';
+
 class VideoPlayer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      url: VideoData[0].id.videoId,
-      description: VideoData[0].snippet.description,
-      title: VideoData[0].snippet.title,
-
     };
   }
   render() {

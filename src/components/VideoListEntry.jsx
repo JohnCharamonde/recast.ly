@@ -18,17 +18,13 @@ class VideoListEntry extends React.Component {
   //   });
   // }
   render() {
-    <VideoPlayer
-      url={this.state.url}
-      description={this.state.description}
-      title={this.state.title} />;
     return (
       <div className="video-list-entry media">
         <div className="media-left media-middle">
           <img className="media-object" src={this.props.video.snippet.thumbnails.default.url} alt="" />
         </div>
         <div className="media-body"></div>
-        {/* <div className="video-list-entry-title" onClick={() => { this.props.handleVideoClick(this.props.video.id.videoId, this.props.video.snippet.title, this.props.video.snippet.description ) }}>
+        {/* <div className="video-list-entry-title" onClick={() => { this.props.handleVideoClick(this.props.video.id.videoId, this.props.video.snippet.title, this.props.video.snippet.description, true ) }}>
           {this.props.video.snippet.title}</div> */}
         <div className="video-list-entry-detail">{this.props.video.snippet.description}</div>
       </div>

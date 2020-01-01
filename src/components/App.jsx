@@ -1,28 +1,29 @@
 import VideoList from './VideoList.js';
 import VideoPlayer from './VideoPlayer.js';
+import VideoData from '../data/exampleVideoData.js';
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      url: null,
-      description: null,
-      title: null,
+      url: VideoData[0].id.videoId,
+      description: VideoData[0].snippet.description,
+      title: VideoData[0].snippet.title,
+      flag: false,
     };
   }
-  componentDidMount() {
-    this.handleVideoClick();
-  }
-
-  handleVideoClick(url, description, title) {
-
+  handleVideoClick(url, description, title, flag) {
     this.setState({
       url,
       description,
-      title
+      title,
+      flag
     });
   }
 
   render() {
+    var trigger = () =>{
+      flag ? this.handleVideoClick() : null;
+    };
     return (
       <div>
         <nav className="navbar">
@@ -32,7 +33,9 @@ class App extends React.Component {
         </nav>
         <div className="row">
           <div className="col-md-7">
-            <div><h5><em>Video Player</em><VideoPlayer url={this.state.url} description={this.state.description} title={this.state.title} /></h5></div>
+            <div><h5><em>Video Player</em>
+              <VideoPlayer url={this.state.url} description={this.state.description} title={this.state.title} />
+            </h5></div>
           </div>
           <div className="col-md-5">
             <div><h5><em>Video List</em><VideoList handleVideoClick={this.handleVideoClick.bind(this)} /></h5></div>
