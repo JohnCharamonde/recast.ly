@@ -9,33 +9,27 @@ class VideoListEntry extends React.Component {
       title: null,
     };
   }
-  sendVideo(url, description, title) {
+  // sendVideo(url, description, title) {
 
-    this.setState = ({
-      url,
-      description,
-      title
-    })
-  }
+  //   this.setState = ({
+  //     url,
+  //     description,
+  //     title
+  //   });
+  // }
   render() {
-
+    <VideoPlayer
+      url={this.state.url}
+      description={this.state.description}
+      title={this.state.title} />;
     return (
-      <VideoPlayer
-    url={this.state.url}
-    description={this.state.description}
-    title={this.state.title} />
       <div className="video-list-entry media">
         <div className="media-left media-middle">
           <img className="media-object" src={this.props.video.snippet.thumbnails.default.url} alt="" />
         </div>
         <div className="media-body"></div>
-        <div className="video-list-entry-title"
-          onClick={this.sendVideo.bind(
-            this,
-            this.props.video.id.videoId,
-            this.props.video.snippet.title,
-            this.props.video.snippet.description)}>
-          {this.props.video.snippet.title}</div>
+        {/* <div className="video-list-entry-title" onClick={() => { this.props.handleVideoClick(this.props.video.id.videoId, this.props.video.snippet.title, this.props.video.snippet.description ) }}>
+          {this.props.video.snippet.title}</div> */}
         <div className="video-list-entry-detail">{this.props.video.snippet.description}</div>
       </div>
     );

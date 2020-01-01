@@ -9,15 +9,14 @@ class VideoList extends React.Component {
     };
   }
 
-
   render() {
     return (
       <div className="video-list" >
         {this.state.VideoData.map(video =>
-          <VideoListEntry video={video} />
+          <VideoListEntry video={video} handleVideoClick={this.props.handleVideoClick.bind(this)}/>
         )}
-      </div>)
-    };
+      </div>);
+  }
 }
 
 

@@ -3,7 +3,25 @@ import VideoPlayer from './VideoPlayer.js';
 class App extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      url: null,
+      description: null,
+      title: null,
+    };
   }
+  componentDidMount() {
+    this.handleVideoClick();
+  }
+
+  handleVideoClick(url, description, title) {
+
+    this.setState({
+      url,
+      description,
+      title
+    });
+  }
+
   render() {
     return (
       <div>
@@ -14,10 +32,10 @@ class App extends React.Component {
         </nav>
         <div className="row">
           <div className="col-md-7">
-            <div><h5><em>Video Player</em><VideoPlayer /></h5></div>
+            <div><h5><em>Video Player</em><VideoPlayer url={this.state.url} description={this.state.description} title={this.state.title} /></h5></div>
           </div>
           <div className="col-md-5">
-            <div><h5><em>Video List</em><VideoList /></h5></div>
+            <div><h5><em>Video List</em><VideoList handleVideoClick={this.handleVideoClick.bind(this)} /></h5></div>
           </div>
         </div>
       </div>
